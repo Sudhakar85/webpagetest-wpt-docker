@@ -22,7 +22,7 @@ docker run -d -p 4000:80 local-server
 
 6. Run docker agent
 
-docker run -p 4001:80 --network host -e "SERVER_URL=http://10.0.75.1:4000/work/" -e "LOCATION=Test" local-agent
+docker run -p 4001:80 --network host -e "SERVER_URL=http://localhost:4000/work/" -e "LOCATION=Test" local-agent
 
 Open browser and verify localhost:4000/install and validate the agent is available for the Test location 
 
