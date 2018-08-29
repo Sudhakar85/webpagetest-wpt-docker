@@ -1,6 +1,20 @@
 # Host Webpagetest server and agent into docker
 
-# Step
+# Method 1
+1. Download wpt-private-instance folder 
+
+2. Change local path in docker-compose.yml file 
+
+3. Setup DNS names based on the corporate/office network
+
+4. run > docker-compose up
+
+5. Use below script to test localhost websites
+
+setDns  127.0.0.1 localhost.dell.com
+navigate localhost:3000/mysite/home
+
+# Method 2
 1. Download docker images
 
 docker pull webpagetest/server
