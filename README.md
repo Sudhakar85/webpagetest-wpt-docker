@@ -1,4 +1,4 @@
-# Host Webpagetest server and agent into docker
+# Host Webpagetest server and agent into Windows docker
 
 # Method 1
 1. Download wpt-private-instance folder 
