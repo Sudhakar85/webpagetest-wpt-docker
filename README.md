@@ -42,10 +42,20 @@ Open browser and verify localhost:4000/install and validate the agent is availab
 
 
 # Testing URL
-http://localhost:4000
-http://localhost:4000/install
-http://localhost:4000/getTesters.php
-http://localhost:4000/getlocations.php
+
+
+http://localhost:4000 
+
+
+http://localhost:4000/install 
+
+
+http://localhost:4000/getTesters.php 
+
+
+http://localhost:4000/getlocations.php 
+
+
 
 
 
