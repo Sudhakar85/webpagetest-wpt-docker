@@ -1,0 +1,38 @@
+version: '3'
+services:
+  wpt-server:
+    image: webpagetest/server
+    build:
+     context: C:/Sudhakar/WebpageTestDocker/server
+     dockerfile: Dockerfile
+    container_name: 'local-server'
+    ports:
+     - '4000:80'
+    volumes: 
+      - "C:/Sudhakar/WebpageTestDocker/server/wpt/settings/locations.ini:/var/www/html/settings/locations.ini"
+      - "C:/Sudhakar/WebpageTestDocker/server/wpt/settings/settings.ini:/var/www/html/settings/settings.ini"
+      - "C:/Sudhakar/WebpageTestDocker/server/wpt/results:/var/www/html/results"
+      - "C:/Sudhakar/WebpageTestDocker/server/wpt/logs:/var/www/html/logs/"
+      - "C:/Sudhakar/WebpageTestDocker/server/wpt/dat:/var/www/html/dat/"
+    privileged: true
+    dns:
+     - "x.x.x.x"
+  wpt-agent:
+    image: webpagetest/agent
+    build:
+      context : C:/Sudhakar/WebpageTestDocker/agent
+      dockerfile: Dockerfile
+    container_name: 'local-agent'
+    depends_on:
+     - wpt-server
+    ports:
+      - '4001:80'
+    network_mode: "host"
+    cap_add:
+     - NET_ADMIN
+    environment:
+      - SERVER_URL=http://localhost:4000/work/
+      - LOCATION=Test
+      - SHAPER=none 
+    dns:
+     - "x.x.x.x"
